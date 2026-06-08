@@ -87,7 +87,7 @@ Answer: I don't have enough information on that. The provided documents only con
 
 ## Query Interface
 
-I built the interface using Gradio. You run it with python app.py and go to http://localhost:7860. There is a text box where you type your question, an Ask button, an Answer box that shows the response with source citations, and a Retrieved from box that shows which files were used to generate the answer.
+I built the interface using Gradio. You run it with python app.py and go to your localhost. There is a text box where you type your question, an Ask button, an Answer box that shows the response with source citations, and a Retrieved from box that shows which files were used to generate the answer.
 
 Sample interaction:
 Input: "Which professor is the easiest to approach?"
