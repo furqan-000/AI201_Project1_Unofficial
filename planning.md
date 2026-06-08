@@ -1,122 +1,57 @@
-# Project 1 Planning: The Unofficial Guide
-
-> Write this document before you write any pipeline code.
-> Your spec and architecture diagram are what you'll use to direct AI tools (Claude, Copilot, etc.) to generate your implementation — the more specific they are, the more useful the generated code will be.
-> Update the Retrieval Approach and Chunking Strategy sections if you change your approach during implementation.
-> Update this file before starting any stretch features.
-
----
-
 ## Domain
-
-<!-- What domain did you choose? Why is this knowledge valuable and hard to find through official channels? -->
-
----
+I picked UIC Computer Science professor reviews. I chose this because when I was trying to pick classes I had no idea which professors were good or bad. The university website just gives you a name and a course number, it doesn't tell you anything useful. Students share the real info on Rate My Professors but you can't search across multiple professors at once easily. I wanted to make something that lets you just ask a question and get an answer based on what students actually said.
 
 ## Documents
-
-<!-- List your specific sources: URLs, subreddit names, forum threads, or file descriptions.
-     Aim for at least 10 sources that together cover different subtopics or perspectives within your domain. -->
-
-| # | Source | Description | URL or location |
-|---|--------|-------------|-----------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
-| 7 | | | |
-| 8 | | | |
-| 9 | | | |
-| 10 | | | |
-
----
+1. documents/prof_ayala_cs.txt - reviews for Daniel Ayala from Rate My Professors
+2. documents/prof_bello_cs.txt - reviews for Gonzalo Bello Lander from Rate My Professors
+3. documents/prof_gu_cs.txt - reviews for Zhaochen Gu from Rate My Professors
+4. documents/prof_katok_cs.txt - reviews for Zoa Katok from Rate My Professors
+5. documents/prof_kshemkalyani_cs.txt - reviews for Ajay Kshemkalyani from Rate My Professors
+6. documents/prof_maratos_cs.txt - reviews for George Maratos from Rate My Professors
+7. documents/prof_raizi_cs.txt - reviews for Sara Raizi from Rate My Professors
+8. documents/prof_tang_cs.txt - reviews for Wei Tang from Rate My Professors
+9. documents/prof_theys_cs.txt - reviews for Mitchell Theys from Rate My Professors
+10. documents/prof_verschelde_cs.txt - reviews for Jan Verschelde from Rate My Professors
 
 ## Chunking Strategy
+Chunk size: 300 words
+Overlap: 50 words
 
-<!-- How will you split documents into chunks?
-     State your chunk size (in tokens or characters), overlap size, and explain why those
-     numbers fit the structure of your documents.
-     A review-heavy corpus warrants different chunking than a long FAQ. -->
-
-**Chunk size:**
-
-**Overlap:**
-
-**Reasoning:**
-
----
+I went with 300 words because the reviews are pretty short, like a few sentences each. I wanted each chunk to have at least one or two full reviews in it so the meaning doesn't get cut off. If I made chunks too small like 50 words it would just be fragments that don't make sense on their own. The 50 word overlap is so that if a review gets split between two chunks, the important part still shows up in one of them. I tested it and got 13 chunks total across 10 documents which felt reasonable.
 
 ## Retrieval Approach
+I used all-MiniLM-L6-v2 from sentence-transformers because the project recommended it and it runs locally without needing an API key. I retrieve the top 4 chunks per query. The way it works is it turns the question and all the chunks into vectors and finds the ones that are most similar. So even if the question uses different words than the review it can still find the right one.
 
-<!-- Which embedding model are you using (e.g., all-MiniLM-L6-v2 via sentence-transformers)?
-     How many chunks will you retrieve per query (top-k)?
-     If you were deploying this for real users and cost wasn't a constraint, what tradeoffs
-     would you weigh in choosing a different embedding model — context length, multilingual
-     support, accuracy on domain-specific text, latency? -->
-
-**Embedding model:**
-
-**Top-k:**
-
-**Production tradeoff reflection:**
-
----
+If I was doing this for real users I would think about using something like OpenAIs embedding model because it might be more accurate, but it costs money per request. I would also think about how long the text is and whether it supports other languages if the users speak different languages.
 
 ## Evaluation Plan
-
-<!-- List your 5 test questions with their expected correct answers.
-     Questions should be specific enough that you can judge whether the system's response
-     is right or wrong. "What are good dining halls?" is too vague.
-     "What do students say about wait times at [dining hall name] during lunch?" is testable. -->
-
-| # | Question | Expected answer |
-|---|----------|-----------------|
-| 1 | | |
-| 2 | | |
-| 3 | | |
-| 4 | | |
-| 5 | | |
-
----
+1. Which professor is the easiest to approach? Expected answer: Daniel Ayala based on reviews saying he is very chill and easy to talk to.
+2. Which professor should I avoid? Expected answer: Mitchell Theys or Zhaochen Gu based on the really negative reviews.
+3. Does Professor Maratos curve his exams? Expected answer: Yes based on a review that mentions curved challenging aspects.
+4. Which professor is better for CS 151? Expected answer: Zoa Katok based on a review that says she is the better CS 151 professor.
+5. What do students think about Professor Bello's lectures? Expected answer: Students say lectures are really clear and detailed, multiple people gave 5 stars.
 
 ## Anticipated Challenges
-
-<!-- What could go wrong? Name at least two specific risks with reasoning.
-     Consider: noisy or inconsistent documents, missing source attribution, off-topic
-     retrieval, chunks that split key information across boundaries. -->
-
-1.
-
-2.
-
----
-
-## Architecture
-
-<!-- Draw a diagram of your pipeline showing the five stages:
-     Document Ingestion → Chunking → Embedding + Vector Store → Retrieval → Generation
-     Label each stage with the tool or library you're using.
-     You can use ASCII art, a Mermaid diagram, or embed a sketch as an image.
-     You'll use this diagram as context when prompting AI tools to implement each stage. -->
-
----
+1. Some reviews are really short like one sentence and might get grouped with a different professors review in the same chunk which could confuse the answer.
+2. If someone asks about a professor using a nickname or spells the name wrong the system probably won't find the right reviews.
 
 ## AI Tool Plan
+1. ingest.py: I gave Claude my chunking strategy and document list and asked it to write the code to load and chunk the files.
+2. embed.py: I gave Claude the retrieval section and asked it to write the embedding and ChromaDB storage code.
+3. query.py: I told Claude I needed grounded answers only from the documents with source citations and it wrote the prompt and retrieval function.
+4. app.py: I gave Claude the Gradio example from the spec and asked it to connect it to my query function.
 
-<!-- For each part of the pipeline below, describe:
-     - Which AI tool you plan to use (Claude, Copilot, ChatGPT, etc.)
-     - What you'll give it as input (which sections of this planning.md, which requirements)
-     - What you expect it to produce
-     - How you'll verify the output matches your spec
-
-     "I'll use AI to help me code" is not a plan.
-     "I'll give Claude my Chunking Strategy section and ask it to implement chunk_text()
-     with my specified chunk size and overlap" is a plan. -->
-
-**Milestone 3 — Ingestion and chunking:**
-
-**Milestone 4 — Embedding and retrieval:**
-
-**Milestone 5 — Generation and interface:**
+## Architecture
+Document Ingestion (load .txt files)
+        ↓
+Chunking (300 words, 50 word overlap)
+        ↓
+Embedding (all-MiniLM-L6-v2)
+        ↓
+Vector Store (ChromaDB)
+        ↓
+Retrieval (top 4 chunks)
+        ↓
+Generation (Groq llama-3.3-70b-versatile)
+        ↓
+Gradio UI
