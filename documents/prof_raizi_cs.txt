@@ -1,0 +1,24 @@
+Professor: Sara Raizi
+Department: Computer Science
+University: University of Illinois Chicago
+
+Review 1:
+She gave some pretty helpful feedback when I asked for clarification but her slides were always behind. Everything she taught was already said in the homework. As long as you understand the homework, the labs shouldn't be too difficult either.
+Rating: 3/5
+
+Review 2:
+Her office hours were very helpful for projects, but her lectures are behind the homework assigned so it feels pointless to go to them.
+Rating: 3/5
+
+Review 3:
+She would spend 20 minutes on one slide continually reexplaining the same thing over and over while writing on the slide more and more which made her difficult to follow. Her study guides are okay and the tests aren't to hard. The home work is very useful for learning the material. She does a lot of I clicker. The in lab tests are difficult.
+Rating: 1/5
+
+Review 4:
+She requires you attend lecture, but her lectures are behind the material in the homework. Her expectations in the course are not absurd, could be improved. She does not know how to manage the lectures. Homework and labs somewhat prepare you for the exams. She I believe is the only person who teaches this course. Reply upon the TA's if you can!
+Rating: 2/5
+
+Review 5:
+Her voice is so grating that you can't even fall asleep during lecture. Homeworks are unnecessarily long and tedious, and the labs are a joke. She will write questions for the exams that she will never cover in class, so be aware. Worst part is this class is COE won't give you credit for this class regardless of your prior coding experience.
+Rating: 2/5
+

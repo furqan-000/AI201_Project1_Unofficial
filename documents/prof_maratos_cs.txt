@@ -1,0 +1,23 @@
+Professor: George Maratos
+Department: Computer Science
+University: University of Illinois Chicago
+
+Review 1:
+Genuinely the best professor I've ever had by miles. Probably the best at UIC.
+Rating: 5/5
+
+Review 2:
+This is one of those classes you take and remember years later positively impacted your educational journey. The instructional method is extremely clear, resourceful and inclusive to all learning styles. The instructor does not impose a standard, rather they engage students meaningfully, even the challenging aspects are fairly curved.
+Rating: 5/5
+
+Review 3:
+This is one of those classes you take and remember years later positively impacted your educational journey. The instructional method is extremely clear, resourceful and inclusive to all learning styles. The instructor doesn't impose a standard, rather they engage students meaningfully, even the challenging aspects are extremely fair. GOATED
+Rating: 5/5
+
+Review 4:
+He is the best professor I have taken all 4 years as an engineering student. His lecture are very clear and entertaining, labs are optional but very helpful and serve as extra credit. Homework can be challenging but he offers resubmissions after posting the homework video solutions. Exams are difficult but course def prepares you for them.Take him!
+Rating: 5/5
+
+Review 5:
+Pretty good professor overall. Lectures give a lot of information but it can be hard to use that information in code as we don't go over full functions of implementation. Lectures are still very good. Interesting homework assignments as well.
+Rating: 4/5

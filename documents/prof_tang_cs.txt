@@ -1,0 +1,23 @@
+Professor: Wei Tang
+Department: Computer Science
+University: University of Illinois Chicago
+
+Review 1:
+The course focuses on 3D computer vision, covering latest technologies such as nerf and gaussian splatting. Homework is easy, attendance is mandatory and crucial.
+Rating: 5/5
+
+Review 2:
+The grading criteria are weird. Only 40-60% of top students would get A. There is no clear grading rubric. Don't like the idea of pitting students against each other. Otherwise assignments are pretty easy and final project is a group project. not enough grading rubric for the project as well.
+Rating: 4/5
+
+Review 3:
+The professor is very nice and cares about the students' difficulty. The course is well designed. Homework comes with code examples. A final project gives us the freedom to explore our own problem of interest.
+Rating: 5/5
+
+Review 4:
+There is barely any interaction in the class. Professor usually just follow the slides & uses them extensively for explanations. Homeworks are not hard, but grading takes weeks and the grading criteria is not clear. Programming questions are good for learning but we can't really deviate from what was taught in the class for their implementation.
+Rating: 2/5
+
+Review 5:
+A very useful course. The professor explains each machine learning model clearly and concisely. Homeworks are well designed. Question posts on Pizza are answered quickly. The exam is similar to homework.
+Rating: 5/5
